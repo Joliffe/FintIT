@@ -25,8 +25,12 @@ namespace FindIt
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/FindIT").Include(
                       "~/Scripts/FindIT.js"));
+
+            bundles.Add(new ScriptBundle("~/Content/Login").Include(
+                "~/Content/Login.css"));
         }
     }
 }

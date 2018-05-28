@@ -1,0 +1,43 @@
+﻿@model FindIt.Models.persona
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div id="login_View">
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        {
+
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                    <form>
+                        @Html.LabelFor(model => model.usuario)
+                        @Html.EditorFor(model => model.usuario)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        @Html.LabelFor(model => model.pass)
+                        @Html.EditorFor(model => model.pass)
+                        @Html.ValidationMessageFor(model => model.usuario)
+
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                    </form>
+
+                    <div class="login-help">
+                        <a href="#">@Html.ActionLink("Registrar","Registrar")</a> - <a href="#">Forgot Password</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

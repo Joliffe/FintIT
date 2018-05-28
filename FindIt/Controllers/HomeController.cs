@@ -26,5 +26,12 @@ namespace FindIt.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            ViewBag.message = "Login Page";
+
+            return View();
+        }
     }
 }

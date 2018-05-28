@@ -1,0 +1,64 @@
+﻿@model FindIt.Models.persona
+@{
+    ViewBag.Title = "SingIn";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SingIn</title>
+</head>
+<body>
+    <div id="SingIn_View">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Create Your Account</h1><br>
+                    <form>
+                        @Html.LabelFor(model => model.usuario)
+                        @Html.EditorFor(model => model.usuario)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        @Html.LabelFor(model => model.pass)
+                        @Html.EditorFor(model => model.pass)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br />
+                        @Html.LabelFor(model => model.nombre)
+                        @Html.EditorFor(model => model.nombre)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        @Html.LabelFor(model => model.email)
+                        @Html.EditorFor(model => model.email)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        @Html.LabelFor(model => model.telefono)
+                        @Html.EditorFor(model => model.telefono)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        @Html.LabelFor(model => model.idPersona)
+                        @Html.EditorFor(model => model.idPersona)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        @Html.ValidationMessage("CedulaExist", new {@class = "text-danger" })
+                        <br>
+                        @Html.LabelFor(model => model.tipo)
+                        @Html.EditorFor(model => model.tipo)
+                        @Html.ValidationMessageFor(model => model.usuario)
+                        <br>
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                        <input type="submit" name="login" class="login loginmodal-submit" value="SingIn">
+                    </form>
+
+                    
+                </div>
+            </div>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

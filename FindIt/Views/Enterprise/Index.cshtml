@@ -1,0 +1,69 @@
+﻿@model FindIt.Models.empresa
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LogedLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enterprise Manager</title>
+</head>
+<body>
+    <div id="login_View">
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        {
+
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Edit your enterprise</h1><br>
+                    <form>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">1</div>
+                                <div class="col-sm-6">2</div>
+
+                            </div>
+
+                        </div>
+                        @Html.LabelFor(model => model.nombre)
+                        @Html.EditorFor(model => model.nombre)
+                        @Html.ValidationMessageFor(model => model.nombre)
+                        <br>
+                        @Html.LabelFor(model => model.provincia)
+                        @Html.EditorFor(model => model.provincia)
+                        @Html.ValidationMessageFor(model => model.provincia)
+                        <br>
+                        @Html.LabelFor(model => model.propietario)
+                        @Html.EditorFor(model => model.propietario)
+                        @Html.ValidationMessageFor(model => model.propietario)
+                        <br>
+                        @Html.LabelFor(model => model.descripcion)
+                        @Html.EditorFor(model => model.descripcion)
+                        @Html.ValidationMessageFor(model => model.descripcion)
+                        <br>
+                        @*<label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>*@
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Save Changes">
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.imagen, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" id="Avatar" name="upload" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
