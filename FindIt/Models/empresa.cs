@@ -19,6 +19,6 @@ namespace FindIt.Models
         public string provincia { get; set; }
         public string propietario { get; set; }
         public string descripcion { get; set; }
-        public Nullable<int> imagen { get; set; }
+        public string imagen { get; set; }
     }
 }

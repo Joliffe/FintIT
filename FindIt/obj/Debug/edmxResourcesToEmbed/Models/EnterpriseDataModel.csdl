@@ -9,7 +9,7 @@
     <Property Name="provincia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="propietario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="imagen" Type="Int32" />
+    <Property Name="imagen" Type="String" />
   </EntityType>
   <EntityContainer Name="db_globalesEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="empresa" EntityType="Self.empresa" />

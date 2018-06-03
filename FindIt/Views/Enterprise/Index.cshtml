@@ -13,51 +13,60 @@
 </head>
 <body>
     <div id="login_View">
-        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Create", "Enterprise", FormMethod.Post,new {enctype="multipart/form-data"}))
         {
 
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
+            <div class="modal-dialog empresa" id="">
+                <div class="loginmodal-container empresa" id="" style="display:inline-block">
                     <h1>Edit your enterprise</h1><br>
                     <form>
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-6">1</div>
-                                <div class="col-sm-6">2</div>
+                                <div class="col-sm-4" style="display:inline-block">
+                                    @Html.LabelFor(model => model.nombre)
+                                    <br>
+                                    @Html.EditorFor(model => model.nombre)
+                                    <br>
+                                    @Html.ValidationMessageFor(model => model.nombre)
+                                    <br>
+                                    @Html.LabelFor(model => model.provincia)
+                                    <br>
+                                    @Html.EditorFor(model => model.provincia)
+                                    <br>
+                                    @Html.ValidationMessageFor(model => model.provincia)
+                                    <br>
+                                    @Html.LabelFor(model => model.propietario)
+                                    <br>
+                                    @Html.EditorFor(model => model.propietario)
+                                    <br>
+                                    @Html.ValidationMessageFor(model => model.propietario)
+                                    <br>
+                                    @Html.LabelFor(model => model.descripcion)
+                                    <br>
+                                    @Html.EditorFor(model => model.descripcion)
+                                    <br>
+                                    @Html.ValidationMessageFor(model => model.descripcion)
+                                    <br>
+                                </div>
+                                <div class="col-sm-4" style="display:inline-block">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.imagen, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <input type="file" id="img" name="img" onchange="LoadImage(this)" />
+                                            
+                                            <br>
+                                            <img id="Image" src="#" alt="your image" />
+                                        </div>
+                                        
+                                    </div>
 
+                                </div>
                             </div>
-
                         </div>
-                        @Html.LabelFor(model => model.nombre)
-                        @Html.EditorFor(model => model.nombre)
-                        @Html.ValidationMessageFor(model => model.nombre)
-                        <br>
-                        @Html.LabelFor(model => model.provincia)
-                        @Html.EditorFor(model => model.provincia)
-                        @Html.ValidationMessageFor(model => model.provincia)
-                        <br>
-                        @Html.LabelFor(model => model.propietario)
-                        @Html.EditorFor(model => model.propietario)
-                        @Html.ValidationMessageFor(model => model.propietario)
-                        <br>
-                        @Html.LabelFor(model => model.descripcion)
-                        @Html.EditorFor(model => model.descripcion)
-                        @Html.ValidationMessageFor(model => model.descripcion)
-                        <br>
+                        
                         @*<label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>*@
                         <input type="submit" name="login" class="login loginmodal-submit" value="Save Changes">
                     </form>
-                </div>
-            </div>
-
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.imagen, new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            <input type="file" id="Avatar" name="upload" />
-                        </div>
-                    </div>
                 </div>
             </div>
         }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="db_globalesEnterpriseModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="db_globalesEnterpriseModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="empresa">
           <Key>
             <PropertyRef Name="idEmpresa" />
@@ -14,13 +14,12 @@
           <Property Name="provincia" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="propietario" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="imagen" Type="int" />
+          <Property Name="imagen" Type="varchar" MaxLength="128" />
         </EntityType>
         <EntityContainer Name="db_globalesEnterpriseModelStoreContainer">
           <EntitySet Name="empresa" EntityType="Self.empresa" Schema="db_globales" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_globalesEnterpriseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,7 +32,7 @@
           <Property Name="provincia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="propietario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imagen" Type="Int32" />
+          <Property Name="imagen" Type="String" />
         </EntityType>
         <EntityContainer Name="db_globalesEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="empresa" EntityType="Self.empresa" />
