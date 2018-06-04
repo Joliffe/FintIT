@@ -13,5 +13,17 @@
   </EntityType>
   <EntityContainer Name="db_globalesEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="empresa" EntityType="Self.empresa" />
+    <EntitySet Name="eventos" EntityType="db_globalesEnterpriseModel.eventos" />
   </EntityContainer>
+  <EntityType Name="eventos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="propietario" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="imagen" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

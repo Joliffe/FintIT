@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8deca64ae4af4d4286ab9cb8eb1f15fb" Name="Diagram1">
         <EntityTypeShape EntityType="db_globalesEnterpriseModel.empresa" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_globalesEnterpriseModel.eventos" Width="1.5" PointX="6.375" PointY="1.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

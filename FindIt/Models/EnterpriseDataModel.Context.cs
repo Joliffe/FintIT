@@ -26,5 +26,6 @@ namespace FindIt.Models
         }
     
         public DbSet<empresa> empresa { get; set; }
+        public DbSet<eventos> eventos { get; set; }
     }
 }

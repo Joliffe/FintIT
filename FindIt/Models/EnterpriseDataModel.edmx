@@ -16,8 +16,20 @@
           <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="imagen" Type="varchar" MaxLength="128" />
         </EntityType>
+        <EntityType Name="eventos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="propietario" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="varchar" MaxLength="256" />
+        </EntityType>
         <EntityContainer Name="db_globalesEnterpriseModelStoreContainer">
           <EntitySet Name="empresa" EntityType="Self.empresa" Schema="db_globales" store:Type="Tables" />
+          <EntitySet Name="eventos" EntityType="Self.eventos" Schema="db_globales" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -36,7 +48,19 @@
         </EntityType>
         <EntityContainer Name="db_globalesEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="empresa" EntityType="Self.empresa" />
+          <EntitySet Name="eventos" EntityType="db_globalesEnterpriseModel.eventos" />
         </EntityContainer>
+        <EntityType Name="eventos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="propietario" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -52,6 +76,18 @@
                 <ScalarProperty Name="propietario" ColumnName="propietario" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventos">
+            <EntityTypeMapping TypeName="db_globalesEnterpriseModel.eventos">
+              <MappingFragment StoreEntitySet="eventos">
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="propietario" ColumnName="propietario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

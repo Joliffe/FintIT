@@ -1,0 +1,69 @@
+﻿@model FindIt.Models.eventos
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_LogedLayout.cshtml";
+}
+
+<h2>Events</h2>
+
+<div id="Events_View">
+    @using (Html.BeginForm("CreateEvent", "Enterprise", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="modal-dialog empresa" id="">
+            <div class="loginmodal-container empresa" id="" style="display:inline-block">
+                <h1>Edit your Event</h1><br>
+                <form>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4" style="display:inline-block">
+                                @Html.LabelFor(model => model.Nombre)
+                                <br>
+                                @Html.EditorFor(model => model.Nombre)
+                                <br>
+                                @Html.ValidationMessageFor(model => model.Nombre)
+                                <br>
+                                @Html.LabelFor(model => model.direccion)
+                                <br>
+                                @Html.EditorFor(model => model.direccion)
+                                <br>
+                                @Html.ValidationMessageFor(model => model.direccion)
+                                <br>
+                                @Html.LabelFor(model => model.propietario)
+                                <br>
+                                @Html.EditorFor(model => model.propietario)
+                                <br>
+                                @Html.ValidationMessageFor(model => model.propietario)
+                                <br>
+                                @Html.LabelFor(model => model.Telefono)
+                                <br>
+                                @Html.EditorFor(model => model.Telefono)
+                                <br>
+                                @Html.ValidationMessageFor(model => model.Telefono)
+                                <br>
+                            </div>
+                            <div class="col-sm-4" style="display:inline-block">
+                                <div class="form-group"></div>
+                                @Html.LabelFor(model => model.imagen, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <input type="file" id="img" name="img" onchange="LoadImage(this)" />
+
+                                    <br>
+                                    <img id="Image" src="~/Images/@Model.imagen" alt="your image" onload="LoadImage(@Model.imagen)" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>*@
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Save Changes">
+                </form>
+            </div>
+        </div>
+
+    }
+
+
+
+
+</div>

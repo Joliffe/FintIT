@@ -11,7 +11,19 @@
     <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="imagen" Type="varchar" MaxLength="128" />
   </EntityType>
+  <EntityType Name="eventos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="propietario" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="imagen" Type="varchar" MaxLength="256" />
+  </EntityType>
   <EntityContainer Name="db_globalesEnterpriseModelStoreContainer">
     <EntitySet Name="empresa" EntityType="Self.empresa" Schema="db_globales" store:Type="Tables" />
+    <EntitySet Name="eventos" EntityType="Self.eventos" Schema="db_globales" store:Type="Tables" />
   </EntityContainer>
 </Schema>

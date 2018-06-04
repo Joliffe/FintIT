@@ -10,6 +10,10 @@ namespace FindIt.Controllers
     {
         public ActionResult Index()
         {
+
+
+
+
             return View();
         }
 

@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LogedLayout.cshtml";
+    
+   
 }
 
 <!DOCTYPE html>
@@ -49,16 +51,16 @@
                                     <br>
                                 </div>
                                 <div class="col-sm-4" style="display:inline-block">
-                                    <div class="form-group">
+                                    <div class="form-group"></div>
                                         @Html.LabelFor(model => model.imagen, new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
                                             <input type="file" id="img" name="img" onchange="LoadImage(this)" />
                                             
                                             <br>
-                                            <img id="Image" src="#" alt="your image" />
+                                            <img id="Image" src="~/Images/@Model.imagen" alt="your image" onload="LoadImage(@Model.imagen)" />
                                         </div>
                                         
-                                    </div>
+                                    
 
                                 </div>
                             </div>
