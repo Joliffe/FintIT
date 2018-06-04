@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindIt.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,11 +11,13 @@ namespace FindIt.Controllers
     {
         public ActionResult Index()
         {
+            using (db_globalesEntities2 db = new db_globalesEntities2())
+            {
+                var empresaList = db.empresa.ToList();
+                return View(empresaList);
+            }
 
-
-
-
-            return View();
+               
         }
 
         public ActionResult About()

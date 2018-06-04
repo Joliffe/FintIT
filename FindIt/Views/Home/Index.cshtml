@@ -1,80 +1,37 @@
-﻿@{
+﻿@model IEnumerable<FindIt.Models.empresa>
+@{
     ViewBag.Title = "Home Page";
 }
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-@*<div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    FindIT Menu
-                </a>
-            </li>
-            <li>
-                <a href="#">Enterprices</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">Profile</a>
-            </li>
-            <li>
-                <a href="#">Edits</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
-    <!-- Page Content -->
-    <div id="page-content-wrapper"></div>
-</div>*@
-        <div class="container-fluid">
-         
-            <div class="jumbotron">
-                <h1>FindIt</h1>
-                <p class="lead">FindIT is the application where you can find multiple Events or </p>
-                <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-            </div>
+<div class="container-fluid">
 
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Publish your Event</h2>
-                    <p>
-                        Here yo can post your events, and everybody will be able to find it.
-                    </p>
-                    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Find Enterprice Services</h2>
-                    <p>In the app you can find o publish diferents services .</p>
-                    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Easy way to contact</h2>
-                    <p>You can easily contact with the published event managers to inscribe o get more information.</p>
-                    <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="gallery-title">Gallery</h1>
             </div>
-           
+            <div align="center">
+                <button class="btn btn-default filter-button" data-filter="all">All</button>
+                <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
+                <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
+                <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
+                <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+            </div>
+            <br />
+
+            @foreach (var item in Model)
+            {
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                    <img src="~/Images/@item.imagen" class="img-responsive" id="gallery-image">
+                </div>
+            }
         </div>
-    
-    <!-- /#page-content-wrapper -->
+    </div>
 
-<!-- /#wrapper -->
-<!-- Bootstrap core JavaScript -->
-@*<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
-<!-- Menu Toggle Script -->
+</div>
+
+
 
 
