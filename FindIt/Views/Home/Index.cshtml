@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<FindIt.Models.empresa>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -12,25 +13,41 @@
             <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 class="gallery-title">Gallery</h1>
             </div>
-            <div align="center">
-                <button class="btn btn-default filter-button" data-filter="all">All</button>
-                <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
-                <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
-                <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
-                <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
-            </div>
             <br />
 
             @foreach (var item in Model)
             {
-                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                    <img src="~/Images/@item.imagen" class="img-responsive" id="gallery-image">
+                <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe" style="text-align:center">
+                    @Html.Label(item.nombre, new { @class = "GalleryImageTitle" });
+                    <img src="~/Images/@item.imagen" class="img-responsive" id="gallery-image" onclick="ShowPopUp(@item.propietario)">
+                    @Html.Label(item.descripcion);
                 </div>
             }
         </div>
-    </div>
 
+    </div>
 </div>
+
+<div class="modal fade" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h4 id="ModalTile"></h4>
+            </div>
+            <div class="modal-body">
+                @*<form>
+                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe" style="text-align:center">
+                        @Html.LabelFor();
+                        <img src="~/Images/@item.imagen" class="img-responsive" id="gallery-image" onclick="ShowPopUp()">
+                        @Html.Label(item.descripcion);
+                    </div> 
+                </form>*@
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

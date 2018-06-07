@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2018 a las 18:25:48
+-- Tiempo de generación: 07-06-2018 a las 06:17:25
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -42,20 +42,17 @@ CREATE TABLE `empresa` (
   `idEmpresa` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `provincia` varchar(30) NOT NULL,
-  `propietario` varchar(30) NOT NULL,
   `descripcion` varchar(30) NOT NULL,
-  `imagen` varchar(128) DEFAULT NULL
+  `imagen` varchar(128) DEFAULT NULL,
+  `propietario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`idEmpresa`, `nombre`, `provincia`, `propietario`, `descripcion`, `imagen`) VALUES
-(1, 'EMpresa1', 'heredia', '2', 'Bonita', '2.jpg'),
-(3, 'JUMBO', 'Alajuela', '2', 'Baratisimo', '1.png'),
-(6, 'Productos frios SA', 'limon', '604470343', 'Helados artenasanles', 'descarga (1).jpg'),
-(7, 'Productos frios SA', 'limon', '604470343', 'Helados artenasanles', 'foto.jpg');
+INSERT INTO `empresa` (`idEmpresa`, `nombre`, `provincia`, `descripcion`, `imagen`, `propietario`) VALUES
+(1, 'wqwerqw', 'qwwerqw', 'fdjkyuefdghfgj', 'descarga.jpg', 402240376);
 
 -- --------------------------------------------------------
 
@@ -142,14 +139,6 @@ CREATE TABLE `servicios` (
   `empresaId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `servicios`
---
-
-INSERT INTO `servicios` (`idServicios`, `Nombre`, `empresaId`) VALUES
-(1, 'nutricion', 1),
-(2, 'comidas', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -157,16 +146,9 @@ INSERT INTO `servicios` (`idServicios`, `Nombre`, `empresaId`) VALUES
 --
 
 CREATE TABLE `usuario` (
-  `idUsuario` varchar(30) NOT NULL
+  `idUsuario` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`idUsuario`) VALUES
-('2'),
-('604470343');
 
 --
 -- Índices para tablas volcadas
@@ -182,8 +164,7 @@ ALTER TABLE `administrador`
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`idEmpresa`),
-  ADD KEY `propietario` (`propietario`);
+  ADD PRIMARY KEY (`idEmpresa`);
 
 --
 -- Indices de la tabla `eventos`
@@ -221,7 +202,8 @@ ALTER TABLE `servicios`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idUsuario`);
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -231,7 +213,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `eventos`
@@ -249,7 +231,13 @@ ALTER TABLE `galeria`
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `idServicios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idServicios` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -260,12 +248,6 @@ ALTER TABLE `servicios`
 --
 ALTER TABLE `administrador`
   ADD CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`idAdmin`) REFERENCES `persona` (`idPersona`);
-
---
--- Filtros para la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`propietario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `galeria`

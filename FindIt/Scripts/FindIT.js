@@ -17,3 +17,19 @@ function LoadImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function ShowPopUp(enterpriseID) {
+    var url = "Enterprise/GetEnterpriseByID?enterpriceID=" + enterpriseID
+
+    $("#ModalTile").html("Descripcion de la empresa!");
+    $("#mymodal").appendTo("body").modal("show");
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (data) {
+            var obj = JSON.parse(data);
+
+        }
+    })
+}

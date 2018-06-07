@@ -204,3 +204,11 @@ body {
     height: 365px;
 }
 
+.GalleryImageTitle{
+    font-size:15px;
+    font-style:normal;
+}
+
+#mymodal{
+    z-index:1042;
+}

@@ -1,6 +1,8 @@
 ﻿using FindIt.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -51,16 +53,41 @@ namespace FindIt.Controllers
 
 
                 //empresa exists
-                var empresa = db.empresa.Where(x => x.idEmpresa == Newempresa.idEmpresa).FirstOrDefault();
+                var empresa = db.empresa.Where(x => x.propietario == Newempresa.propietario).FirstOrDefault();
                 if (empresa == null)
                 {
-                    db.empresa.Add(Newempresa);
+                  
+                    
+
+                    try
+                    {
+                        db.empresa.Add(Newempresa);
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException dbEx)
+                    {
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        {
+                            foreach (var validationError in validationErrors.ValidationErrors)
+                            {
+                                System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    empresa.nombre = Newempresa.nombre;
+                    empresa.provincia = Newempresa.provincia;
+                    empresa.descripcion = Newempresa.descripcion;
+                    empresa.imagen = Newempresa.imagen;
+                    UpdateModel(empresa);
                     db.SaveChanges();
                 }
             }
 
 
-            return View("Index", "Home");
+            return View("Index",Newempresa);
         }
 
 
@@ -112,6 +139,20 @@ namespace FindIt.Controllers
 
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult GetEnterpriseByID(int enterpriceID)
+        {
+            using (db_globalesEntities2 db= new db_globalesEntities2())
+            {
+                var empresa = db.empresa.Where(x => x.idEmpresa == enterpriceID).FirstOrDefault();
+                string value = string.Empty;
+                value = JsonConvert.SerializeObject(empresa, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+                return Json(value, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

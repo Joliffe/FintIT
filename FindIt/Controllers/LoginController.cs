@@ -65,7 +65,7 @@ namespace FindIt.Controllers
 
             }
 
-            return View();
+            return View("Login");
         }
 
         public ActionResult Registrar()
