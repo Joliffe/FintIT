@@ -145,7 +145,8 @@ namespace FindIt.Controllers
         {
             using (db_globalesEntities2 db= new db_globalesEntities2())
             {
-                var empresa = db.empresa.Where(x => x.idEmpresa == enterpriceID).FirstOrDefault();
+                var idEmpresa = enterpriceID.ToString();
+                var empresa = db.empresa.Where(x => x.propietario==idEmpresa).FirstOrDefault();
                 string value = string.Empty;
                 value = JsonConvert.SerializeObject(empresa, Formatting.Indented, new JsonSerializerSettings
                 {
@@ -153,6 +154,7 @@ namespace FindIt.Controllers
                 });
                 return Json(value, JsonRequestBehavior.AllowGet);
             }
+            //using (db_globalesEntities1)
         }
     }
 }

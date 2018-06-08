@@ -27,11 +27,15 @@ namespace FindIt.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Events()
         {
-            ViewBag.Message = "Your contact page.";
+            using (db_globalesEntities2 db = new db_globalesEntities2())
+            {
+                var eventlist = db.eventos.ToList();
+                return View("Index", eventlist);
+            }
 
-            return View();
+                
         }
 
         public ActionResult Login()

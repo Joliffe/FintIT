@@ -76,7 +76,7 @@ namespace FindIt.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Home");
         }
 
         [NonAction]

@@ -29,7 +29,11 @@ function ShowPopUp(enterpriseID) {
         url: url,
         success: function (data) {
             var obj = JSON.parse(data);
-
+            document.getElementById("PopUp").innerHTML = '<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe" style="text-align:center">' +
+                '<label class="GalleryImageTitle" for= "wqwerqw" > wqwerqw</label>' +
+                '<img src="/Images/descarga.jpg" class="img-responsive" id="gallery-image" onclick="ShowPopUp(402240376)">' +
+                '<label for="fdjkyuefdghfgj">fdjkyuefdghfgj</label>' +
+                '</div>';
         }
     })
 }

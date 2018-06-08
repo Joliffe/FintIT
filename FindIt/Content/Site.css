@@ -212,3 +212,7 @@ body {
 #mymodal{
     z-index:1042;
 }
+
+#PopUp{
+    height:100%;
+}
